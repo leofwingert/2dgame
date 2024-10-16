@@ -49,26 +49,26 @@ public class TileManager {
             int col = 0;
             int row = 0;
 
-            while(col < gp.maxScreenCol && row < gp.maxScreenRow){
+            while(row < gp.maxScreenRow){
 
                 String line = br.readLine();
+                String[] numbers = line.split(" ");
+
+                if(col == gp.maxScreenCol){
+                    col = 0;
+                    row++;
+                }
 
                 while(col < gp.maxScreenCol){
-
-                    String[] numbers = line.split(" ");
 
                     int num = Integer.parseInt(numbers[col]);
 
                     mapTileNumber[col][row] = num;
                     col++;
 
-                    if(col == gp.maxScreenCol){
-                        col = 0;
-                        row++;
-                    }
                 }
-                br.close();
             }
+            br.close();
         }catch (Exception e){
 
         }
